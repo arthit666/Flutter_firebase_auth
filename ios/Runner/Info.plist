@@ -2,7 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -10,12 +9,18 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<!-- TODO Replace this value: -->
-				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>fb466043512541339</string>
 				<string>com.googleusercontent.apps.803732607953-1qdb3lvr16tcmmprks6ddgo7rlfqg3hs</string>
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>466043512541339</string>
+	<key>FacebookClientToken</key>
+	<string>ff362c8839a1323a9fb1e050c44f8f82</string>
+	<key>FacebookDisplayName</key>
+	<string>Flutter Login</string>
+
 	<key>GIDClientID</key>
 	<string>803732607953-1qdb3lvr16tcmmprks6ddgo7rlfqg3hs.apps.googleusercontent.com</string>
 	<key>CFBundleDevelopmentRegion</key>

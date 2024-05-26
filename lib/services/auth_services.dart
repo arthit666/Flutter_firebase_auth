@@ -1,17 +1,33 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   signInWithGoogle() async {
-    final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+    try {
+      final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+      if (gUser == null) return;
+      final GoogleSignInAuthentication gAuth = await gUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: gAuth.accessToken,
+        idToken: gAuth.idToken,
+      );
 
-    final GoogleSignInAuthentication gAuth = await gUser!.authentication;
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print(e);
+    }
+  }
 
-    final credential = GoogleAuthProvider.credential(
-      accessToken: gAuth.accessToken,
-      idToken: gAuth.idToken,
-    );
+  signInWithFacebook() async {
+    try {
+      final LoginResult fLoginResult = await FacebookAuth.instance.login();
+      final credential = FacebookAuthProvider.credential(
+          fLoginResult.accessToken!.tokenString);
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print(e);
+    }
   }
 }

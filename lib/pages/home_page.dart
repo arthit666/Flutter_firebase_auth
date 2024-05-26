@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.grey[300],
       body: Center(
         child: Text(
-          'Logged in!\n${user!.email}',
+          'Logged in!\n${user!.displayName}',
           textAlign: TextAlign.center,
         ),
       ),

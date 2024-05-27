@@ -21,9 +21,12 @@ class AuthService {
 
   signInWithFacebook() async {
     try {
-      final LoginResult fLoginResult = await FacebookAuth.instance.login();
+      final LoginResult fLoginResult = await FacebookAuth.instance.login(
+        permissions: ["public_profile", "email"],
+      );
       final credential = FacebookAuthProvider.credential(
-          fLoginResult.accessToken!.tokenString);
+        fLoginResult.accessToken!.tokenString,
+      );
 
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {

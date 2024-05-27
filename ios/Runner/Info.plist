@@ -21,6 +21,13 @@
 	<key>FacebookDisplayName</key>
 	<string>Flutter Login</string>
 
+
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>fbapi</string>
+	<string>fb-messenger-share-api</string>
+	</array>
+
 	<key>GIDClientID</key>
 	<string>803732607953-1qdb3lvr16tcmmprks6ddgo7rlfqg3hs.apps.googleusercontent.com</string>
 	<key>CFBundleDevelopmentRegion</key>
